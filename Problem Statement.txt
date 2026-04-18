@@ -1,0 +1,58 @@
+Coding Task
+Below are three structures new_order, change_order and cancel_order
+The task is to implement the OrderBook class. The print method should display the current buys  and sells sorted so highest buys first and lowest sells. The buys / sells would be aggregated on price level. So if more than one order is at the same price then the volume is added together
+
+
+struct new_order
+{
+    uint64_t order_id;
+    char     side; // 'B' = Buy , 'S' = Sell
+    int32_t  price;
+    uint32_t quantity;
+};
+
+struct change_order
+{
+    uint64_t order_id;
+    int32_t  new_price;
+    uint32_t new_quantity;
+};
+
+struct cancel_order
+{
+    uint64_t order_id;
+};
+
+class OrderBook
+{
+public:
+
+    void OnNewOrder(const new_order& order);
+    void OnChangeOrder(const change_order& order);
+    void OnCancelOrder(const cancel_order& order);
+
+    void Print();
+};
+
+/*  Need to implement the above functions 
+    Print will show an order book with the highest prices buys first and lowest priced sells
+    This is an aggregated view of the order book with orders at the same price combined
+
+    so something like:-
+
+    Buys    
+    Price Quantity
+    100     10000
+     99     2000
+     98     1000
+
+    Sells
+    Price Quantity
+    102     7000
+    103     2000
+    104     9000
+   
+*/
+    104     9000
+   
+*/
